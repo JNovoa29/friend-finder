@@ -172,36 +172,4 @@ var friendsArr = [
 
 ]
 
-
-// //a more efficient method would be to create a loop for the questions
-// $(document).ready(function() {
-//     $('#submitButton').on('click', function(event) {
-//         event.preventDefault();
-        
-//         var userInput = {
-//             name: $('#userName').val().trim(),
-//             photo: $('#userImage').val().trim(),
-//             scores: [
-//                 $('#question1').val().trim(),
-//                 $('#question2').val().trim(),
-//                 $('#question3').val().trim(),
-//                 $('#question4').val().trim(),
-//                 $('#question5').val().trim(),
-//                 $('#question6').val().trim(),
-//                 $('#question7').val().trim(),
-//                 $('#question8').val().trim(),
-//                 $('#question9').val().trim(),
-//                 $('#question10').val().trim()
-//             ]
-//         }
-        
-//         $.post('/api/friends', userInput)
-//         .done(function(d) {
-//             $('#userMatch').html(data.matchName);
-//             $('#userMatchImage').attr('src', d.matchImage);
-//             $('#modal').modal('open')
-//         });
-//     });
-// })
-
 module.exports = friendsArr

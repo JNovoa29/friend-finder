@@ -159,11 +159,31 @@
     </div>
 
     <script>
-        $('modal').modal({
-            dismissable: false,
-        })
         //a more efficient method would be to create a loop for the questions
         $(document).ready(function () {
+            function conFirm() {
+                var isFilled = true;
+                $(".form-control").each(function() {
+                    if ($(this).val() === "")
+                    {
+                        isFilled = false;
+                    }
+                 });
+
+                 $(".chosen-select").each(function() {
+                     if($(this).val() === "") {
+                         isFilled = false;
+                     }
+                 });
+                 return isFilled;
+            }
+
+
+            $('modal').modal({
+                dismissable: false,
+            })
+
+
             $('#submitButton').on('click', function (event) {
                 event.preventDefault();
 
@@ -186,7 +206,7 @@
 
                 $.post('/api/friends', userInput)
                     .done(function (d) {
-                        $('#userMatch').html(data.matchName);
+                        $('#userMatch').html(d.matchName);
                         $('#userMatchImage').attr('src', d.matchImage);
                         $('#modal').modal('open')
                     });
